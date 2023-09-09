@@ -1,0 +1,22 @@
+---
+import NewTab from "./new-tab.astro"
+import Svg from "./svg.astro"
+type Props = {
+  href: string
+  icon: Parameters<typeof Svg>[0]["icon"]
+}
+const { href, icon } = Astro.props
+---
+
+<div class="link">
+  <NewTab {href} label={icon} color="text">
+    <Svg {icon} />
+  </NewTab>
+</div>
+
+<style>
+  .link {
+    margin: 0 .5rem;
+    width: 2.5rem;
+  }
+</style>

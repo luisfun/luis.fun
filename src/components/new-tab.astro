@@ -1,0 +1,22 @@
+---
+type Props = {
+  href: string
+  label?: string
+  color?: "text"
+}
+const { href, label, color } = Astro.props
+---
+
+<a class:list={[{text: color===`text`}]} {href} aria-label={label} rel = "noreferrer noopener" target = "_blank">
+  <slot />
+</a>
+
+<style>
+  a {
+    display: block;
+    height: 100%;
+  }
+  .text {
+    color: var(--text);
+  }
+</style>

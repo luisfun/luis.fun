@@ -4,10 +4,8 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "start": "astro dev",
     "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
+    "test": "astro build && astro preview"
   },
   "dependencies": {
     "astro": "^3.0.12"

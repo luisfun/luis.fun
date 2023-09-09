@@ -1,0 +1,136 @@
+---
+type Props = {
+  title?: string
+}
+const { title } = Astro.props
+
+const seo = {
+  desc: "Luis's Portfolio",
+  title: title || "Luis.Fun",
+  url: "https://luis.fun",
+  image: "https://luis.fun/luisfun.png",
+  author: "Luis",
+  colorDark: "#0d1117",
+  colorLight: "#f0f6fc",
+}
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{seo.title}</title>
+    <meta name="description" content={seo.desc} />
+    <meta property="og:title" content={seo.title} />
+    <meta property="og:description" content={seo.desc} />
+    <meta property="og:url" content={seo.url} />
+    <meta property="og:image" content={seo.image} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image:alt" content={seo.desc} />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:creator" content={seo.author} />
+    <meta name="msapplication-TileColor" content={seo.colorDark} />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content={seo.colorLight}>
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content={seo.colorDark}>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="512x512" href={seo.image} />
+    <link rel="manifest" href="/manifest.webmanifest">
+  </head>
+  <body>
+    <div class="container">
+      <slot />
+    </div>
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    --color-scale-gray-0: #f0f6fc;
+    --color-scale-gray-1: #c9d1d9;
+    --color-scale-gray-2: #b1bac4;
+    --color-scale-gray-3: #8b949e;
+    --color-scale-gray-4: #6e7681;
+    --color-scale-gray-5: #484f58;
+    --color-scale-gray-6: #30363d;
+    --color-scale-gray-7: #21262d;
+    --color-scale-gray-8: #161b22;
+    --color-scale-gray-9: #0d1117;
+    --color-scale-blue-3: #58a6ff;
+    --color-scale-blue-4: #388bfd;
+    --color-scale-blue-5: #1f6feb;
+    --text: var(--color-scale-gray-0);
+    --text2: var(--color-scale-gray-3);
+    --link: var(--color-scale-blue-3);
+    --background: var(--color-scale-gray-9);
+    --paper: var(--color-scale-gray-8);
+    --paper2: var(--color-scale-gray-7);
+  }
+  html {
+    font-family: system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1;
+    color: var(--text);
+    background: var(--background);
+  }
+  @media (prefers-color-scheme: light) {
+    :root {
+      --text: var(--color-scale-gray-9);
+      --text2: var(--color-scale-gray-5);
+      --link: var(--color-scale-blue-5);
+      --background: #fff;
+      --paper: var(--color-scale-gray-0);
+      --paper2: var(--color-scale-gray-1);
+    }
+  }
+  @media screen and (min-width: 896px) {
+    html {
+      font-size: 20px;
+    }
+  }
+  body {
+    margin: 0;
+  }
+  a {
+    color: var(--link);
+    cursor: pointer;
+    text-decoration: none;
+  }
+  ul {
+    margin: 0;
+  }
+  code {
+    font-family:
+      Menlo,
+      Monaco,
+      Lucida Console,
+      Liberation Mono,
+      DejaVu Sans Mono,
+      Bitstream Vera Sans Mono,
+      Courier New,
+      monospace;
+  }
+  .grid-column-2 {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1rem;
+  }
+  @media screen and (min-width: 640px) {
+    .grid-column-2 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>
+
+<style>
+  .container {
+    margin: auto;
+    padding: 0 1rem;
+    max-width: 1024px;
+  }
+  @media screen and (min-width: 640px) {
+    .container {
+      padding: 0 1.5rem;
+    }
+  }
+</style>

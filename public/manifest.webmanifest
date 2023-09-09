@@ -1,0 +1,16 @@
+{
+  "name": "Luis.Fun",
+  "short_name": "Luis.Fun",
+  "lang": "en",
+  "start_url": "/",
+  "background_color": "#0d1117",
+  "theme_color": "#0d1117",
+  "display": "standalone",
+  "icons": [
+    {
+      "type": "image/png",
+      "src": "/luisfun.png",
+      "sizes": "512x512"
+    }
+  ]
+}
