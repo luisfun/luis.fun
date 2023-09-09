@@ -2,7 +2,7 @@ https://luis-fun.pages.dev/*
   X-Robots-Tag: noindex
 
 /*
-  Content-Security-Policy: default-src 'self'; style-src 'unsafe-inline';
   X-Frame-Options: DENY
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
+  Content-Security-Policy: default-src 'self'; style-src 'unsafe-inline';
