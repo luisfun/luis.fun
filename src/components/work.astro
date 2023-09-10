@@ -14,7 +14,7 @@ const { icon, title, sub, site, env, github } = Astro.props
 
 <div class="card rounded">
   <div class="head flex rounded">
-    <img class="icon rounded" src={"/images/"+icon+".webp"} alt={icon} />
+    <img class="icon rounded" src={"/images/"+icon+".webp"} loading="lazy" alt={icon} />
     <div class="title">
       <div class="sub">{sub}</div>
       <h2>{title}</h2>
