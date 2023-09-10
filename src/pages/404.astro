@@ -1,0 +1,42 @@
+---
+import Layout from "../components/layout.astro"
+import Svg from "../components/svg.astro"
+---
+
+<Layout title="404">
+  <div class="wrap">
+    <a class="icon" href="/">
+      <Svg icon="luisfun" />
+    </a>
+    <div class="error">
+      404 error
+    </div>
+    <a href="/">
+      Go to Top
+    </a>
+  </div>
+</Layout>
+
+<style>
+  .wrap {
+    margin: 4rem 0;
+  }
+  .icon {
+    display: block;
+    color: var(--text);
+    width: 6rem;
+    height: 6rem;
+    margin: auto;
+  }
+  .error {
+    margin: 1.5rem 0;
+    font-size: 1.75rem;
+    text-align: center;
+  }
+  a {
+    display: block;
+    margin: 1.5rem 0;
+    font-size: 1.25rem;
+    text-align: center;
+  }
+</style>
