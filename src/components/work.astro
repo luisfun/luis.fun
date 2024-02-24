@@ -6,10 +6,11 @@ type Props = {
   title: string
   sub: string
   site?: string
+  discord?: string
   env: string[]
   github?: string
 }
-const { icon, title, sub, site, env, github } = Astro.props
+const { icon, title, sub, site, discord, env, github } = Astro.props
 ---
 
 <div class="card rounded">
@@ -23,6 +24,13 @@ const { icon, title, sub, site, env, github } = Astro.props
       <div class="link-icon">
         <NewTab href={site} label="new tab" >
           <Svg icon="arrow-up-right-from-square" />
+        </NewTab>
+      </div>
+    }
+    {discord &&
+      <div class="link-icon">
+        <NewTab href={discord} label="new tab" >
+          <Svg icon="discord" />
         </NewTab>
       </div>
     }
