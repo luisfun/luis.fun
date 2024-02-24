@@ -8,6 +8,6 @@
     "test": "astro build && astro preview"
   },
   "dependencies": {
-    "astro": "^4.0.3"
+    "astro": "^4.4.4"
   }
 }

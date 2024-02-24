@@ -60,11 +60,11 @@ const seo = {
     --color-scale-blue-4: #388bfd;
     --color-scale-blue-5: #1f6feb;
     --text: var(--color-scale-gray-0);
-    --text2: var(--color-scale-gray-3);
     --link: var(--color-scale-blue-4);
     --background: var(--color-scale-gray-9);
-    --paper: var(--color-scale-gray-8);
-    --paper2: var(--color-scale-gray-7);
+    --background-2: var(--color-scale-gray-8);
+    --border: 1px solid var(--color-scale-gray-6);
+    --top-icon: var(--color-scale-gray-0);
   }
   html {
     font-family: system-ui, sans-serif;
@@ -76,11 +76,11 @@ const seo = {
   @media (prefers-color-scheme: light) {
     :root {
       --text: var(--color-scale-gray-9);
-      --text2: var(--color-scale-gray-5);
       --link: var(--color-scale-blue-5);
       --background: #fff;
-      --paper: var(--color-scale-gray-0);
-      --paper2: var(--color-scale-gray-1);
+      --background-2: var(--color-scale-gray-0);
+      --border: 1px solid var(--color-scale-gray-1);
+      --top-icon: var(--color-scale-gray-5);
     }
   }
   @media screen and (min-width: 896px) {
@@ -113,7 +113,7 @@ const seo = {
   .grid-column-2 {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
-    gap: 1rem;
+    gap: 1.2rem;
   }
   @media screen and (min-width: 640px) {
     .grid-column-2 {
@@ -125,7 +125,7 @@ const seo = {
 <style>
   .container {
     margin: auto;
-    padding: 0 1rem;
+    padding: 0 1.2rem;
     max-width: 1024px;
   }
   @media screen and (min-width: 640px) {
