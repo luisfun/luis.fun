@@ -8,15 +8,13 @@ type Props = {
 const { href, icon } = Astro.props
 ---
 
-<div class="link">
-  <NewTab {href} label={icon} color="top-icon">
-    <Svg {icon} />
-  </NewTab>
-</div>
+<NewTab {href} aria-label={icon} class="link">
+  <Svg {icon} />
+</NewTab>
 
 <style>
   .link {
-    margin: 0 .5rem;
     width: 2.5rem;
+    color: var(--top-icon);
   }
 </style>

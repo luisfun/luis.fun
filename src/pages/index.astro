@@ -7,8 +7,8 @@ import Work from "../components/work.astro"
 
 <Layout>
   <header>
-    <div class="top-icon">
-      <Svg icon="luisfun" />
+    <div class="top-icon icon-rounded">
+      <Svg icon="luisfun" class="top-icon-inner" />
     </div>
     <div class="links">
       <Link
@@ -34,46 +34,52 @@ import Work from "../components/work.astro"
     </div>
   </header>
   <main>
-    <div class="grid-column-2">
+    <div class="cards">
       <Work
         icon="paimon"
         title="Paimon+"
+        category="website"
         site="https://paimon.plus"
-        env={["Website","Astro, Svelte, TailWind","Cloudflare Pages / D1"]}
+        env={["Astro, Svelte, TailWind","Cloudflare Pages / D1"]}
         github="https://github.com/luisfun/paimon.plus"
       />
       <Work
         icon="hono"
         title="Discord Hono"
+        category="npm-package"
         site="https://discord-hono.luis.fun"
-        env={["npm Module","Discord Bot","Cloudflare Workers"]}
+        env={["Discord Bot","Cloudflare Workers"]}
         github="https://github.com/luisfun/discord-hono"
       />
       <Work
         icon="paint"
         title="AI Paint"
+        category="website"
         site="https://ai-paint.luis.fun"
-        env={["Website","SvelteKit","Cloudflare Pages / AI"]}
+        env={["SvelteKit","Cloudflare Pages / AI"]}
         github="https://github.com/luisfun/ai-paint"
       />
       <Work
         icon="mimo"
-        title="HoYo News Bot"
+        title="HoYo News"
+        category="discord-bot"
         discord="https://discord.com/api/oauth2/authorize?client_id=1197426250743042069&permissions=2048&scope=bot"
-        env={["News delivery bot","Discord Bot","Cloudflare Workers / D1"]}
+        env={["News Delivery","Cloudflare Workers / D1"]}
         github="https://github.com/luisfun/discord-bot-hoyo-news"
       />
       <Work
         icon="workers"
-        title="AI Bot"
-        env={["Playing with AI","Discord Bot","Cloudflare Workers / AI"]}
+        title="Cloudflare AI"
+        category="discord-bot"
+        env={["Playing with AI","Cloudflare Workers / AI"]}
         github="https://github.com/luisfun/discord-bot-cloudflare-ai"
       />
       <Work
         icon="luislab"
-        title="Luis Lab"
+        title="My Blog"
+        category="website"
         site="https://blog.luis.fun"
-        env={["Blog","Gatsby","Cloudflare Pages"]}
+        env={["Gatsby","Cloudflare Pages"]}
       />
     </div>
   </main>
@@ -87,15 +93,31 @@ import Work from "../components/work.astro"
     margin: 4rem 0;
   }
   .top-icon {
+    width: 6rem;
+    aspect-ratio: 1;
     margin: auto;
-    width: 5rem;
-    height: 5rem;
     color: var(--top-icon);
+    background: var(--top-bg);
+    outline: var(--border);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .top-icon-inner {
+    width: 61.8034%;
+    aspect-ratio: 1;
   }
   .links {
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 1rem;
     margin-top: 2rem;
+  }
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, min(18rem, 100%));
+    gap: 2rem;
+    justify-content: center;
   }
 </style>

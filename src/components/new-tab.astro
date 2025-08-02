@@ -1,22 +1,10 @@
 ---
-type Props = {
-  href: string
-  label?: string
-  color?: "top-icon"
-}
-const { href, label, color } = Astro.props
+import type { HTMLAttributes } from 'astro/types'
+
+type Props = HTMLAttributes<'a'>
+const { ...rest } = Astro.props
 ---
 
-<a class:list={[{"top-icon": color===`top-icon`}]} {href} aria-label={label} rel = "noreferrer noopener" target = "_blank">
+<a rel="noreferrer" target="_blank" {...rest}>
   <slot />
 </a>
-
-<style>
-  a {
-    display: block;
-    height: 100%;
-  }
-  .top-icon {
-    color: var(--top-icon);
-  }
-</style>

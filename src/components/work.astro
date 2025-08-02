@@ -4,42 +4,28 @@ import NewTab from "./new-tab.astro"
 type Props = {
   icon: string
   title: string
+  category: "website" | "discord-bot" | "npm-package"
   site?: string
   discord?: string
   env: string[]
   github?: string
 }
-const { icon, title, site, discord, env, github } = Astro.props
+const { icon, title, category, site, discord, env, github } = Astro.props
 ---
 
-<div class="card rounded">
-  <div class="head flex rounded">
-    <img class="icon rounded" src={"/images/"+icon+".webp"} loading="lazy" alt={icon} />
-    <div class="title">
-      <h2>{title}</h2>
-    </div>
-    {site &&
-      <div class="link-icon">
-        <NewTab href={site} label="new tab" >
-          <Svg icon="arrow-up-right-from-square" />
-        </NewTab>
-      </div>
-    }
-    {discord &&
-      <div class="link-icon">
-        <NewTab href={discord} label="new tab" >
-          <Svg icon="discord" />
-        </NewTab>
-      </div>
-    }
-  </div>
-  <div class="flex">
+<div class="card flex-column-center rounded">
+  <NewTab class="head flex-column-center" href={site || discord || github} aria-label="new tab">
+    <img class="icon icon-rounded" src={"/images/"+icon+".webp"} alt={icon} />
+    <h2 class="title">{title}</h2>
+    <div class="category">{category}</div>
+  </NewTab>
+  <div class="flex description">
     <ul>
       {env.map(e => <li>{e}</li>)}
     </ul>
     {github &&
       <div class="link-icon">
-        <NewTab href={github} label="github" >
+        <NewTab href={github} aria-label="github" >
           <Svg icon="github" />
         </NewTab>
       </div>
@@ -49,7 +35,8 @@ const { icon, title, site, discord, env, github } = Astro.props
 
 <style>
   .rounded {
-    border-radius: 1.5rem;
+    border-radius: 1rem;
+    overflow: hidden;
   }
   .card {
     background-color: var(--background);
@@ -59,28 +46,43 @@ const { icon, title, site, discord, env, github } = Astro.props
     display: flex;
     align-items: center;
   }
+  .flex-column-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
   .head {
-    background-color: var(--background-2);
+    width: stretch;
+    padding: .25rem 1rem;
+    background-color: var(--bg-2);
+    color: var(--text);
+  }
+  .head:hover .title {
+    text-decoration: underline 1px;
   }
   .icon {
-    width: 3rem;
-    height: 3rem;
+    width: 3.5rem;
+    aspect-ratio: 1;
+    margin: 0.5rem 0;
   }
   .title {
-    margin: 0 1rem;
+    font-size: 1.5rem;
+    font-weight: bold;
   }
-  h2 {
-    margin: 0;
-    font-size: 1.3rem;
-    transition: color 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  .category {
+    font-size: 0.75rem;
+    color: var(--text-2);
+  }
+  .description {
+    width: 100%;
   }
   .link-icon {
     margin: 0 1rem 0 auto;
-    width: 1rem;
+    width: 1.25rem;
   }
   ul {
-    margin: .6rem 1rem .8rem;
-    padding-inline-start: 2rem;
-    line-height: 1.5;
+    margin: .75rem 1rem;
+    padding-inline-start: 1rem;
   }
 </style>
