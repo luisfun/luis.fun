@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro build && astro preview"
+    "preview": "astro build && astro preview",
+    "deploy": "wrangler deploy"
   },
   "devDependencies": {
     "astro": "^5.12.8",

@@ -1,4 +1,5 @@
 {
+  "$schema": "node_modules/wrangler/config-schema.json",
   "name": "luis-fun",
   "compatibility_date": "2025-08-02",
   "assets": { "directory": "./dist" },
