@@ -35,10 +35,8 @@ const seo = {
     <link rel="apple-touch-icon" sizes="512x512" href={seo.image} />
     <link rel="manifest" href="/manifest.webmanifest">
   </head>
-  <body>
-    <div class="container">
-      <slot />
-    </div>
+  <body class="container">
+    <slot />
   </body>
 </html>
 
@@ -51,15 +49,17 @@ const seo = {
     --mono-b: #bbb;
     --mono-e: #eee;
     --mono-f: #fff;
+    --blue-3: #58a6ff;
     --blue-4: #388bfd;
     --blue-5: #1f6feb;
     --text: var(--mono-e);
     --text-2: var(--mono-b);
-    --link: var(--blue-4);
+    --link: var(--blue-3);
     --bg: var(--mono-1);
     --bg-2: var(--mono-2);
     --border: 1px solid var(--mono-3);
     --top-icon: var(--mono-f);
+    --top-bg: var(--mono-0);
   }
   html {
     font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
@@ -68,20 +68,14 @@ const seo = {
     color: var(--mono-e);
     background: var(--mono-1);
   }
-  @media screen and (min-width: 896px) {
-    html {
-      font-size: 18px;
-    }
-  }
-  @media screen and (min-width: 1440px) {
-    html {
-      font-size: 20px;
-    }
-  }
   body {
     margin: 0;
   }
+  h2 {
+    margin: 0;
+  }
   a {
+    display: block;
     color: var(--link);
     cursor: pointer;
     text-decoration: none;
@@ -100,6 +94,10 @@ const seo = {
       Courier New,
       monospace;
   }
+  .icon-rounded {
+    border-radius: 30.9017%;
+    overflow: hidden;
+  }
   .grid-column-2 {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
@@ -114,13 +112,7 @@ const seo = {
 
 <style>
   .container {
+    width: 91.6667%;
     margin: auto;
-    padding: 0 1.2rem;
-    max-width: 1024px;
-  }
-  @media screen and (min-width: 640px) {
-    .container {
-      padding: 0 1.5rem;
-    }
   }
 </style>

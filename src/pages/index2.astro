@@ -1,14 +1,14 @@
 ---
 import Layout from "../components/layout2.astro"
-import Svg from "../components/svg.astro"
-import Link from "../components/link.astro"
+import Svg from "../components/svg2.astro"
+import Link from "../components/link2.astro"
 import Work from "../components/work2.astro"
 ---
 
 <Layout>
   <header>
-    <div class="top-icon">
-      <Svg icon="luisfun" />
+    <div class="top-icon icon-rounded">
+      <Svg icon="luisfun" class="top-icon-inner" />
     </div>
     <div class="links">
       <Link
@@ -34,7 +34,7 @@ import Work from "../components/work2.astro"
     </div>
   </header>
   <main>
-    <div class="grid-column-2">
+    <div class="cards">
       <Work
         icon="paimon"
         title="Paimon+"
@@ -61,15 +61,15 @@ import Work from "../components/work2.astro"
       />
       <Work
         icon="mimo"
-        title="HoYo News Bot"
+        title="HoYo News"
         category="discord-bot"
         discord="https://discord.com/api/oauth2/authorize?client_id=1197426250743042069&permissions=2048&scope=bot"
-        env={["News delivery bot","Cloudflare Workers / D1"]}
+        env={["News Delivery","Cloudflare Workers / D1"]}
         github="https://github.com/luisfun/discord-bot-hoyo-news"
       />
       <Work
         icon="workers"
-        title="AI Bot"
+        title="Cloudflare AI"
         category="discord-bot"
         env={["Playing with AI","Cloudflare Workers / AI"]}
         github="https://github.com/luisfun/discord-bot-cloudflare-ai"
@@ -93,15 +93,31 @@ import Work from "../components/work2.astro"
     margin: 4rem 0;
   }
   .top-icon {
+    width: 6rem;
+    aspect-ratio: 1;
     margin: auto;
-    width: 5rem;
-    height: 5rem;
     color: var(--top-icon);
+    background: var(--top-bg);
+    outline: var(--border);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .top-icon-inner {
+    width: 61.8034%;
+    aspect-ratio: 1;
   }
   .links {
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 1rem;
     margin-top: 2rem;
+  }
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, min(18rem, 100%));
+    gap: 2rem;
+    justify-content: center;
   }
 </style>
