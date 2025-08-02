@@ -1,0 +1,107 @@
+---
+import Layout from "../components/layout2.astro"
+import Svg from "../components/svg.astro"
+import Link from "../components/link.astro"
+import Work from "../components/work2.astro"
+---
+
+<Layout>
+  <header>
+    <div class="top-icon">
+      <Svg icon="luisfun" />
+    </div>
+    <div class="links">
+      <Link
+        icon="github"
+        href="https://github.com/luisfun"
+      />
+      <Link
+        icon="npm"
+        href="https://www.npmjs.com/~luisfun"
+      />
+      <Link
+        icon="discord"
+        href="https://discord.gg/5bKYuCcmfu"
+      />
+      <Link
+        icon="dev"
+        href="https://dev.to/luisfun"
+      />
+      <Link
+        icon="patreon"
+        href="https://www.patreon.com/luisfun"
+      />
+    </div>
+  </header>
+  <main>
+    <div class="grid-column-2">
+      <Work
+        icon="paimon"
+        title="Paimon+"
+        category="website"
+        site="https://paimon.plus"
+        env={["Astro, Svelte, TailWind","Cloudflare Pages / D1"]}
+        github="https://github.com/luisfun/paimon.plus"
+      />
+      <Work
+        icon="hono"
+        title="Discord Hono"
+        category="npm-package"
+        site="https://discord-hono.luis.fun"
+        env={["Discord Bot","Cloudflare Workers"]}
+        github="https://github.com/luisfun/discord-hono"
+      />
+      <Work
+        icon="paint"
+        title="AI Paint"
+        category="website"
+        site="https://ai-paint.luis.fun"
+        env={["SvelteKit","Cloudflare Pages / AI"]}
+        github="https://github.com/luisfun/ai-paint"
+      />
+      <Work
+        icon="mimo"
+        title="HoYo News Bot"
+        category="discord-bot"
+        discord="https://discord.com/api/oauth2/authorize?client_id=1197426250743042069&permissions=2048&scope=bot"
+        env={["News delivery bot","Cloudflare Workers / D1"]}
+        github="https://github.com/luisfun/discord-bot-hoyo-news"
+      />
+      <Work
+        icon="workers"
+        title="AI Bot"
+        category="discord-bot"
+        env={["Playing with AI","Cloudflare Workers / AI"]}
+        github="https://github.com/luisfun/discord-bot-cloudflare-ai"
+      />
+      <Work
+        icon="luislab"
+        title="My Blog"
+        category="website"
+        site="https://blog.luis.fun"
+        env={["Gatsby","Cloudflare Pages"]}
+      />
+    </div>
+  </main>
+</Layout>
+
+<style>
+  header {
+    margin: 4rem 0;
+  }
+  main {
+    margin: 4rem 0;
+  }
+  .top-icon {
+    margin: auto;
+    width: 5rem;
+    height: 5rem;
+    color: var(--top-icon);
+  }
+  .links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+  }
+</style>

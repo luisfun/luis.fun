@@ -1,0 +1,91 @@
+---
+import Svg from "./svg.astro"
+import NewTab from "./new-tab2.astro"
+type Props = {
+  icon: string
+  title: string
+  category: "website" | "discord-bot" | "npm-package"
+  site?: string
+  discord?: string
+  env: string[]
+  github?: string
+}
+const { icon, title, category, site, discord, env, github } = Astro.props
+---
+
+<div class="card flex-column-center rounded">
+  <NewTab class="head flex-column-center" href={site || discord || github} aria-label="new tab">
+    <img class="icon rounded" src={"/images/"+icon+".webp"} loading="lazy" alt={icon} />
+    <h2 class="title">{title}</h2>
+    <div class="category">{category}</div>
+  </NewTab>
+  <div class="flex">
+    <ul>
+      {env.map(e => <li>{e}</li>)}
+    </ul>
+    {github &&
+      <div class="link-icon">
+        <NewTab href={github} aria-label="github" >
+          <Svg icon="github" />
+        </NewTab>
+      </div>
+    }
+  </div>
+</div>
+
+<style>
+  .rounded {
+    border-radius: 1.5rem;
+    overflow: hidden;
+  }
+  .card {
+    width: fit-content;
+    background-color: var(--background);
+    border: var(--border);
+  }
+  .flex {
+    display: flex;
+    align-items: center;
+  }
+  .flex-column-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .head {
+    width: stretch;
+    padding: .25rem 1rem;
+    background-color: var(--bg-2);
+    color: var(--text);
+  }
+  .head:hover .title {
+    text-decoration: underline 1px;
+  }
+  .icon {
+    width: 4rem;
+    height: 4rem;
+    margin: 0.5rem 0;
+  }
+  .title {
+    font-size: 1.5rem;
+  }
+  .category {
+    font-size: 0.75rem;
+    color: var(--text-2);
+  }
+  h2 {
+    margin: 0;
+    font-size: 1.3rem;
+    transition: color 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .link-icon {
+    margin: 0 1rem 0 auto;
+    width: 1rem;
+  }
+  ul {
+    margin: .6rem 1rem .8rem;
+    padding-inline-start: 2rem;
+    line-height: 1.5;
+  }
+</style>

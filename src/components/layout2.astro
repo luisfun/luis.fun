@@ -1,0 +1,126 @@
+---
+type Props = {
+  title?: string
+}
+const { title } = Astro.props
+
+const seo = {
+  desc: "Luis' Portfolio",
+  title: title || "luis.fun",
+  url: "https://luis.fun",
+  image: "https://luis.fun/luisfun.png",
+  author: "Luis",
+  color: "#111",
+}
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{seo.title}</title>
+    <meta name="description" content={seo.desc} />
+    <meta property="og:title" content={seo.title} />
+    <meta property="og:description" content={seo.desc} />
+    <meta property="og:url" content={seo.url} />
+    <meta property="og:image" content={seo.image} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image:alt" content={seo.desc} />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:creator" content={seo.author} />
+    <meta name="msapplication-TileColor" content={seo.color} />
+    <meta name="theme-color" content={seo.color}>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="512x512" href={seo.image} />
+    <link rel="manifest" href="/manifest.webmanifest">
+  </head>
+  <body>
+    <div class="container">
+      <slot />
+    </div>
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    --mono-0: #000;
+    --mono-1: #111;
+    --mono-2: #222;
+    --mono-3: #333;
+    --mono-b: #bbb;
+    --mono-e: #eee;
+    --mono-f: #fff;
+    --blue-4: #388bfd;
+    --blue-5: #1f6feb;
+    --text: var(--mono-e);
+    --text-2: var(--mono-b);
+    --link: var(--blue-4);
+    --bg: var(--mono-1);
+    --bg-2: var(--mono-2);
+    --border: 1px solid var(--mono-3);
+    --top-icon: var(--mono-f);
+  }
+  html {
+    font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--mono-e);
+    background: var(--mono-1);
+  }
+  @media screen and (min-width: 896px) {
+    html {
+      font-size: 18px;
+    }
+  }
+  @media screen and (min-width: 1440px) {
+    html {
+      font-size: 20px;
+    }
+  }
+  body {
+    margin: 0;
+  }
+  a {
+    color: var(--link);
+    cursor: pointer;
+    text-decoration: none;
+  }
+  ul {
+    margin: 0;
+  }
+  code {
+    font-family:
+      Menlo,
+      Monaco,
+      Lucida Console,
+      Liberation Mono,
+      DejaVu Sans Mono,
+      Bitstream Vera Sans Mono,
+      Courier New,
+      monospace;
+  }
+  .grid-column-2 {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1.2rem;
+  }
+  @media screen and (min-width: 640px) {
+    .grid-column-2 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>
+
+<style>
+  .container {
+    margin: auto;
+    padding: 0 1.2rem;
+    max-width: 1024px;
+  }
+  @media screen and (min-width: 640px) {
+    .container {
+      padding: 0 1.5rem;
+    }
+  }
+</style>
