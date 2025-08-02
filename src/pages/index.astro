@@ -3,6 +3,78 @@ import Layout from "../components/layout.astro"
 import Svg from "../components/svg.astro"
 import Link from "../components/link.astro"
 import Work from "../components/work.astro"
+
+const links: { icon: Parameters<typeof Svg>[0]["icon"]; href: string }[] = [
+  { icon: "github", href: "https://github.com/luisfun" },
+  { icon: "npm", href: "https://www.npmjs.com/~luisfun" },
+  { icon: "discord", href: "https://discord.gg/5bKYuCcmfu" },
+  { icon: "dev", href: "https://dev.to/luisfun" },
+  { icon: "patreon", href: "https://www.patreon.com/luisfun" },
+]
+
+const works: { icon: string; title: string; category: Parameters<typeof Work>[0]["category"]; site?: string; discord?: string; env: string[]; github?: string }[] = [
+  {
+    icon: "hono",
+    title: "Discord Hono",
+    category: "npm-package",
+    site: "https://discord-hono.luis.fun",
+    env: ["Discord Bot", "Cloudflare Workers"],
+    github: "https://github.com/luisfun/discord-hono"
+  },
+  {
+    icon: "paimon",
+    title: "Paimon+",
+    category: "website",
+    site: "https://paimon.plus",
+    env: ["Astro, Svelte, TailWind", "Cloudflare Pages / D1"],
+    github: "https://github.com/luisfun/paimon.plus"
+  },
+  {
+    icon: "paint",
+    title: "AI Paint",
+    category: "website",
+    site: "https://ai-paint.luis.fun",
+    env: ["SvelteKit", "Cloudflare Pages / AI"],
+    github: "https://github.com/luisfun/ai-paint"
+  },
+  {
+    icon: "luislab",
+    title: "My Blog",
+    category: "website",
+    site: "https://blog.luis.fun",
+    env: ["Gatsby", "Cloudflare Pages"]
+  },
+  {
+    icon: "fanzap",
+    title: "FANZAP",
+    category: "website",
+    site: "https://www.google.com/search?q=fanzap&nfpr=1",
+    env: ["HonoX, TailWind", "Cloudflare Workers"]
+  },
+  {
+    icon: "2ch",
+    title: "/2ch",
+    category: "discord-bot",
+    discord: "https://discord.com/oauth2/authorize?client_id=1370657822853042186&permissions=0&integration_type=0&scope=bot",
+    env: ["Anonymous posting", "Cloudflare Workers / D1"],
+    github: "https://github.com/luisfun/discord-hono-examples/tree/main/workerd-2ch"
+  },
+  {
+    icon: "mimo",
+    title: "HoYo News",
+    category: "discord-bot",
+    discord: "https://discord.com/api/oauth2/authorize?client_id=1197426250743042069&permissions=2048&scope=bot",
+    env: ["News Delivery","Cloudflare Workers / D1"],
+    github: "https://github.com/luisfun/discord-bot-hoyo-news"
+  },
+  {
+    icon: "workers",
+    title: "Cloudflare AI",
+    category: "discord-bot",
+    env: ["Playing with AI","Cloudflare Workers / AI"],
+    github: "https://github.com/luisfun/discord-bot-cloudflare-ai"
+  }
+]
 ---
 
 <Layout>
@@ -11,91 +83,24 @@ import Work from "../components/work.astro"
       <Svg icon="luisfun" class="top-icon-inner" />
     </div>
     <div class="links">
-      <Link
-        icon="github"
-        href="https://github.com/luisfun"
-      />
-      <Link
-        icon="npm"
-        href="https://www.npmjs.com/~luisfun"
-      />
-      <Link
-        icon="discord"
-        href="https://discord.gg/5bKYuCcmfu"
-      />
-      <Link
-        icon="dev"
-        href="https://dev.to/luisfun"
-      />
-      <Link
-        icon="patreon"
-        href="https://www.patreon.com/luisfun"
-      />
+      {links.map(link => (
+        <Link icon={link.icon} href={link.href} topLink />
+      ))}
     </div>
   </header>
   <main>
     <div class="works">
-      <Work
-        icon="hono"
-        title="Discord Hono"
-        category="npm-package"
-        site="https://discord-hono.luis.fun"
-        env={["Discord Bot","Cloudflare Workers"]}
-        github="https://github.com/luisfun/discord-hono"
-      />
-      <Work
-        icon="paimon"
-        title="Paimon+"
-        category="website"
-        site="https://paimon.plus"
-        env={["Astro, Svelte, TailWind","Cloudflare Pages / D1"]}
-        github="https://github.com/luisfun/paimon.plus"
-      />
-      <Work
-        icon="paint"
-        title="AI Paint"
-        category="website"
-        site="https://ai-paint.luis.fun"
-        env={["SvelteKit","Cloudflare Pages / AI"]}
-        github="https://github.com/luisfun/ai-paint"
-      />
-      <Work
-        icon="luislab"
-        title="My Blog"
-        category="website"
-        site="https://blog.luis.fun"
-        env={["Gatsby","Cloudflare Pages"]}
-      />
-      <Work
-        icon="fanzap"
-        title="FANZAP"
-        category="website"
-        site="https://www.google.com/search?q=fanzap&nfpr=1"
-        env={["HonoX, TailWind", "Cloudflare Workers"]}
-      />
-      <Work
-        icon="2ch"
-        title="/2ch"
-        category="discord-bot"
-        discord="https://discord.com/oauth2/authorize?client_id=1370657822853042186&permissions=0&integration_type=0&scope=bot"
-        env={["Anonymous posting", "Cloudflare Workers / D1"]}
-        github="https://github.com/luisfun/discord-hono-examples/tree/main/workerd-2ch"
-      />
-      <Work
-        icon="mimo"
-        title="HoYo News"
-        category="discord-bot"
-        discord="https://discord.com/api/oauth2/authorize?client_id=1197426250743042069&permissions=2048&scope=bot"
-        env={["News Delivery","Cloudflare Workers / D1"]}
-        github="https://github.com/luisfun/discord-bot-hoyo-news"
-      />
-      <Work
-        icon="workers"
-        title="Cloudflare AI"
-        category="discord-bot"
-        env={["Playing with AI","Cloudflare Workers / AI"]}
-        github="https://github.com/luisfun/discord-bot-cloudflare-ai"
-      />
+      {works.map(work => (
+        <Work
+          icon={work.icon}
+          title={work.title}
+          category={work.category}
+          site={work.site}
+          discord={work.discord}
+          env={work.env}
+          github={work.github}
+        />
+      ))}
     </div>
   </main>
 </Layout>
