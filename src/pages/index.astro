@@ -34,15 +34,7 @@ import Work from "../components/work.astro"
     </div>
   </header>
   <main>
-    <div class="cards">
-      <Work
-        icon="paimon"
-        title="Paimon+"
-        category="website"
-        site="https://paimon.plus"
-        env={["Astro, Svelte, TailWind","Cloudflare Pages / D1"]}
-        github="https://github.com/luisfun/paimon.plus"
-      />
+    <div class="works">
       <Work
         icon="hono"
         title="Discord Hono"
@@ -52,12 +44,42 @@ import Work from "../components/work.astro"
         github="https://github.com/luisfun/discord-hono"
       />
       <Work
+        icon="paimon"
+        title="Paimon+"
+        category="website"
+        site="https://paimon.plus"
+        env={["Astro, Svelte, TailWind","Cloudflare Pages / D1"]}
+        github="https://github.com/luisfun/paimon.plus"
+      />
+      <Work
         icon="paint"
         title="AI Paint"
         category="website"
         site="https://ai-paint.luis.fun"
         env={["SvelteKit","Cloudflare Pages / AI"]}
         github="https://github.com/luisfun/ai-paint"
+      />
+      <Work
+        icon="luislab"
+        title="My Blog"
+        category="website"
+        site="https://blog.luis.fun"
+        env={["Gatsby","Cloudflare Pages"]}
+      />
+      <Work
+        icon="fanzap"
+        title="FANZAP"
+        category="website"
+        site="https://www.google.com/search?q=fanzap&nfpr=1"
+        env={["HonoX, TailWind", "Cloudflare Workers"]}
+      />
+      <Work
+        icon="2ch"
+        title="/2ch"
+        category="discord-bot"
+        discord="https://discord.com/oauth2/authorize?client_id=1370657822853042186&permissions=0&integration_type=0&scope=bot"
+        env={["Anonymous posting", "Cloudflare Workers / D1"]}
+        github="https://github.com/luisfun/discord-hono-examples/tree/main/workerd-2ch"
       />
       <Work
         icon="mimo"
@@ -73,13 +95,6 @@ import Work from "../components/work.astro"
         category="discord-bot"
         env={["Playing with AI","Cloudflare Workers / AI"]}
         github="https://github.com/luisfun/discord-bot-cloudflare-ai"
-      />
-      <Work
-        icon="luislab"
-        title="My Blog"
-        category="website"
-        site="https://blog.luis.fun"
-        env={["Gatsby","Cloudflare Pages"]}
       />
     </div>
   </main>
@@ -114,7 +129,7 @@ import Work from "../components/work.astro"
     gap: 1rem;
     margin-top: 2rem;
   }
-  .cards {
+  .works {
     display: grid;
     grid-template-columns: repeat(auto-fit, min(18rem, 100%));
     gap: 2rem;

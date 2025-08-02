@@ -13,7 +13,7 @@ type Props = {
 const { icon, title, category, site, discord, env, github } = Astro.props
 ---
 
-<div class="card flex-column-center rounded">
+<div class="work flex-column-center rounded">
   <NewTab class="head flex-column-center" href={site || discord || github} aria-label="new tab">
     <img class="icon icon-rounded" src={"/images/"+icon+".webp"} alt={icon} />
     <h2 class="title">{title}</h2>
@@ -38,7 +38,7 @@ const { icon, title, category, site, discord, env, github } = Astro.props
     border-radius: 1rem;
     overflow: hidden;
   }
-  .card {
+  .work {
     background-color: var(--background);
     border: var(--border);
   }
@@ -71,7 +71,7 @@ const { icon, title, category, site, discord, env, github } = Astro.props
     font-weight: bold;
   }
   .category {
-    font-size: 0.75rem;
+    font-size: 0.875rem;
     color: var(--text-2);
   }
   .description {
