@@ -9,7 +9,9 @@
     "deploy": "wrangler deploy"
   },
   "devDependencies": {
+    "@iconify-json/simple-icons": "^1.2.45",
     "astro": "^5.12.8",
+    "astro-icon": "^1.1.5",
     "wrangler": "^4.27.0"
   }
 }

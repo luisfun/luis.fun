@@ -1,22 +1,16 @@
 ---
 import NewTab from "./new-tab.astro"
-import Svg from "./svg.astro"
+import { Icon } from "astro-icon/components"
+import { type IconType } from "./icon-types"
 
 type Props = {
   href: string
-  icon: Parameters<typeof Svg>[0]["icon"]
-  topLink?: boolean
+  icon: IconType
+  class?: string
 }
-const { href, icon, topLink } = Astro.props
+const { href, icon, ...rest } = Astro.props
 ---
 
-<NewTab {href} aria-label={icon} class:list={[{link: topLink}]}>
-  <Svg {icon} />
+<NewTab {href} aria-label={icon}>
+  <Icon name={icon} {...rest} />
 </NewTab>
-
-<style>
-  .link {
-    width: 2.5rem;
-    color: var(--top-icon);
-  }
-</style>

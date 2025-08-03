@@ -1,15 +1,16 @@
 ---
 import Layout from "../components/layout.astro"
-import Svg from "../components/svg.astro"
+import { Icon } from "astro-icon/components"
 import Link from "../components/link.astro"
 import Work from "../components/work.astro"
+import {type IconType} from "../components/icon-types"
 
-const links: { icon: Parameters<typeof Svg>[0]["icon"]; href: string }[] = [
-  { icon: "github", href: "https://github.com/luisfun" },
-  { icon: "npm", href: "https://www.npmjs.com/~luisfun" },
-  { icon: "discord", href: "https://discord.gg/5bKYuCcmfu" },
-  { icon: "dev", href: "https://dev.to/luisfun" },
-  { icon: "patreon", href: "https://www.patreon.com/luisfun" },
+const links: { icon: IconType; href: string }[] = [
+  { icon: "simple-icons:github", href: "https://github.com/luisfun" },
+  { icon: "simple-icons:npm", href: "https://www.npmjs.com/~luisfun" },
+  //{ icon: "simple-icons:dev", href: "https://dev.to/luisfun" },
+  { icon: "simple-icons:discord", href: "https://discord.gg/5bKYuCcmfu" },
+  { icon: "simple-icons:patreon", href: "https://www.patreon.com/luisfun" },
 ]
 
 const works: { icon: string; title: string; category: Parameters<typeof Work>[0]["category"]; site?: string; discord?: string; env: string[]; github?: string }[] = [
@@ -80,11 +81,11 @@ const works: { icon: string; title: string; category: Parameters<typeof Work>[0]
 <Layout>
   <header>
     <div class="top-icon icon-rounded">
-      <Svg icon="luisfun" class="top-icon-inner" />
+      <Icon name="luisfun" class="top-icon-inner" />
     </div>
     <div class="links">
       {links.map(link => (
-        <Link icon={link.icon} href={link.href} topLink />
+        <Link icon={link.icon} href={link.href} class="link" />
       ))}
     </div>
   </header>
@@ -125,7 +126,7 @@ const works: { icon: string; title: string; category: Parameters<typeof Work>[0]
   }
   .top-icon-inner {
     width: 61.8034%;
-    aspect-ratio: 1;
+    height: auto;
   }
   .links {
     display: flex;
@@ -133,6 +134,11 @@ const works: { icon: string; title: string; category: Parameters<typeof Work>[0]
     align-items: center;
     gap: 1rem;
     margin-top: 2rem;
+  }
+  .link {
+    width: 2.5rem;
+    height: auto;
+    color: var(--top-icon);
   }
   .works {
     display: grid;
