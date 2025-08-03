@@ -25,7 +25,7 @@ const { icon, title, site, discord, category, description, stack, github } = Ast
     <div class="category mt-2">{category}</div>
     <div class="description mt-2">{description}</div>
     <div class="flex mt-2">
-      {stack.map(icon => <Icon name={icon} class="stack-icon mr-1" />)}
+      {stack.map(icon => <Icon name={icon} class="stack-icon mr-2" />)}
       {github &&
         <NewTab href={github} class="github-link" aria-label="simple-icons:github">
           <Icon name="simple-icons:github" class="stack-icon" />
@@ -48,6 +48,9 @@ const { icon, title, site, discord, category, description, stack, github } = Ast
   }
   .mr-1 {
     margin-right: 0.25rem;
+  }
+  .mr-2 {
+    margin-right: 0.5rem;
   }
   .work {
     background-color: var(--background);

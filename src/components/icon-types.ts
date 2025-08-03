@@ -13,6 +13,7 @@ export type Iconify =
   | "simple-icons:tailwindcss"
   | "simple-icons:gatsby"
   | "simple-icons:hono"
+  | "simple-icons:tina"
 
 export type WorkIcon =
   | "hono"
