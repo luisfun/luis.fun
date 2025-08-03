@@ -1,11 +1,11 @@
 ---
 import NewTab from "./new-tab.astro"
 import { Icon } from "astro-icon/components"
-import { type IconType } from "./icon-types"
+import { type Iconify } from "./icon-types"
 
 type Props = {
   href: string
-  icon: IconType
+  icon: Iconify
   class?: string
 }
 const { href, icon, ...rest } = Astro.props

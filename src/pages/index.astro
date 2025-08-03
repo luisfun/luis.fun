@@ -3,9 +3,9 @@ import Layout from "../components/layout.astro"
 import { Icon } from "astro-icon/components"
 import Link from "../components/link.astro"
 import Work from "../components/work.astro"
-import {type IconType} from "../components/icon-types"
+import {type Iconify} from "../components/icon-types"
 
-const links: { icon: IconType; href: string }[] = [
+const links: { icon: Iconify; href: string }[] = [
   { icon: "simple-icons:github", href: "https://github.com/luisfun" },
   { icon: "simple-icons:npm", href: "https://www.npmjs.com/~luisfun" },
   //{ icon: "simple-icons:dev", href: "https://dev.to/luisfun" },
@@ -13,66 +13,74 @@ const links: { icon: IconType; href: string }[] = [
   { icon: "simple-icons:patreon", href: "https://www.patreon.com/luisfun" },
 ]
 
-const works: { icon: string; title: string; category: Parameters<typeof Work>[0]["category"]; site?: string; discord?: string; env: string[]; github?: string }[] = [
+const works: Parameters<typeof Work>[0][] = [
   {
     icon: "hono",
     title: "Discord Hono",
-    category: "npm-package",
     site: "https://discord-hono.luis.fun",
-    env: ["Discord Bot", "Cloudflare Workers"],
+    category: "npm-package",
+    description: "Cloudflare Workersで動作するDiscord Botのフレームワーク",
+    stack: ["simple-icons:discord", "simple-icons:cloudflare"],
     github: "https://github.com/luisfun/discord-hono"
   },
   {
     icon: "paimon",
     title: "Paimon+",
-    category: "website",
     site: "https://paimon.plus",
-    env: ["Astro, Svelte, TailWind", "Cloudflare Pages / D1"],
+    category: "website",
+    description: "Genshin Impactオンラインツール",
+    stack: ["simple-icons:astro", "simple-icons:svelte", "simple-icons:tailwindcss", "simple-icons:cloudflare"],
     github: "https://github.com/luisfun/paimon.plus"
   },
   {
     icon: "paint",
     title: "AI Paint",
-    category: "website",
     site: "https://ai-paint.luis.fun",
-    env: ["SvelteKit", "Cloudflare Pages / AI"],
+    category: "website",
+    description: "AIを使った絵画生成ツール",
+    stack: ["simple-icons:svelte", "simple-icons:cloudflare"],
     github: "https://github.com/luisfun/ai-paint"
   },
   {
     icon: "luislab",
-    title: "My Blog",
-    category: "website",
+    title: "Luis Lab",
     site: "https://blog.luis.fun",
-    env: ["Gatsby", "Cloudflare Pages"]
+    category: "website",
+    description: "私のブログ",
+    stack: ["simple-icons:gatsby", "simple-icons:cloudflare"],
   },
   {
     icon: "fanzap",
     title: "FANZAP",
-    category: "website",
     site: "https://www.google.com/search?q=fanzap&nfpr=1",
-    env: ["HonoX, TailWind", "Cloudflare Workers"]
+    category: "website",
+    description: "FANZAのサンプル閲覧サイト",
+    stack: ["simple-icons:hono", "simple-icons:tailwindcss", "simple-icons:cloudflare"],
   },
   {
     icon: "2ch",
     title: "/2ch",
-    category: "discord-bot",
     discord: "https://discord.com/oauth2/authorize?client_id=1370657822853042186&permissions=0&integration_type=0&scope=bot",
-    env: ["Anonymous posting", "Cloudflare Workers / D1"],
+    category: "discord-bot",
+    description: "匿名投稿ができるDiscord Bot",
+    stack: ["simple-icons:cloudflare"],
     github: "https://github.com/luisfun/discord-hono-examples/tree/main/workerd-2ch"
   },
   {
     icon: "mimo",
     title: "HoYo News",
-    category: "discord-bot",
     discord: "https://discord.com/api/oauth2/authorize?client_id=1197426250743042069&permissions=2048&scope=bot",
-    env: ["News Delivery","Cloudflare Workers / D1"],
+    category: "discord-bot",
+    description: "HoYo ゲームの NewsをDiscordに配信するBot",
+    stack: ["simple-icons:cloudflare"],
     github: "https://github.com/luisfun/discord-bot-hoyo-news"
   },
   {
     icon: "workers",
     title: "Cloudflare AI",
     category: "discord-bot",
-    env: ["Playing with AI","Cloudflare Workers / AI"],
+    description: "AIで遊ぶためのDiscord Bot",
+    stack: ["simple-icons:cloudflare"],
     github: "https://github.com/luisfun/discord-bot-cloudflare-ai"
   }
 ]
@@ -98,7 +106,8 @@ const works: { icon: string; title: string; category: Parameters<typeof Work>[0]
           category={work.category}
           site={work.site}
           discord={work.discord}
-          env={work.env}
+          description={work.description}
+          stack={work.stack}
           github={work.github}
         />
       ))}

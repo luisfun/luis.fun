@@ -1,4 +1,4 @@
-export type IconType =
+export type Iconify =
   | "luisfun"
 
   // https://icon-sets.iconify.design/simple-icons/
@@ -13,3 +13,13 @@ export type IconType =
   | "simple-icons:tailwindcss"
   | "simple-icons:gatsby"
   | "simple-icons:hono"
+
+export type WorkIcon =
+  | "hono"
+  | "paimon"
+  | "paint"
+  | "luislab"
+  | "fanzap"
+  | "2ch"
+  | "mimo"
+  | "workers"

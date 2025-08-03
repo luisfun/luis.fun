@@ -1,34 +1,37 @@
 ---
 import NewTab from "./new-tab.astro"
-import Link from "./link.astro"
+import { Icon } from "astro-icon/components"
+import {type Iconify, type WorkIcon} from "./icon-types"
 
 type Props = {
-  icon: string
+  icon: WorkIcon
   title: string
-  category: "website" | "discord-bot" | "npm-package"
   site?: string
   discord?: string
-  env: string[]
+  category: "website" | "discord-bot" | "npm-package"
+  description: string
+  stack: Iconify[]
   github?: string
 }
-const { icon, title, category, site, discord, env, github } = Astro.props
+const { icon, title, site, discord, category, description, stack, github } = Astro.props
 ---
 
 <div class="work flex flex-col">
   <NewTab class="head flex flex-col" href={site || discord || github} aria-label="new tab">
     <img class="icon icon-rounded" src={"/images/"+icon+".webp"} alt={icon} />
     <h2 class="title">{title}</h2>
-    <div class="category">{category}</div>
   </NewTab>
-  <div class="flex description">
-    <ul>
-      {env.map(e => <li>{e}</li>)}
-    </ul>
-    {github &&
-      <div class="link-icon">
-        <Link icon="simple-icons:github" href={github} class="env-icon" />
-      </div>
-    }
+  <div class="body">
+    <div class="category mt-2">{category}</div>
+    <div class="description mt-2">{description}</div>
+    <div class="flex mt-2">
+      {stack.map(icon => <Icon name={icon} class="stack-icon" />)}
+      {github &&
+        <NewTab href={github} class="github-icon" aria-label="simple-icons:github">
+          <Icon name="simple-icons:github" class="stack-icon" />
+        </NewTab>
+      }
+    </div>
   </div>
 </div>
 
@@ -40,6 +43,9 @@ const { icon, title, category, site, discord, env, github } = Astro.props
   .flex-col {
     flex-direction: column;
   }
+  .mt-2 {
+    margin-top: 0.5rem;
+  }
   .work {
     background-color: var(--background);
     border: var(--border);
@@ -48,7 +54,7 @@ const { icon, title, category, site, discord, env, github } = Astro.props
   }
   .head {
     width: 100%;
-    padding: .25rem 1rem;
+    padding: .25rem 0;
     background-color: var(--bg-2);
     color: var(--text);
   }
@@ -65,19 +71,27 @@ const { icon, title, category, site, discord, env, github } = Astro.props
     font-size: 1.5rem;
     font-weight: bold;
   }
+  .body {
+    width: calc(100% - 2rem);
+    height: 100%;
+    margin: 0 0 1rem;
+  }
   .category {
+    text-align: center;
     font-size: 0.875rem;
     color: var(--text-2);
   }
   .description {
     width: 100%;
+    color: var(--text-2);
   }
-  .link-icon {
-    margin: 0 1rem 0 auto;
-  }
-  .env-icon {
+  .stack-icon {
     width: 1.25rem;
     height: auto;
+    margin: 0 0.125rem;
+  }
+  .github-icon {
+    margin-left: auto;
   }
   ul {
     margin: .75rem 1rem;
