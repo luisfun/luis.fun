@@ -88,9 +88,7 @@ const works: Parameters<typeof Work>[0][] = [
 
 <Layout>
   <header>
-    <div class="top-icon icon-rounded">
-      <Icon name="luisfun" class="top-icon-inner" />
-    </div>
+    <Icon name="luisfun" class="top-icon icon-rounded" />
     <div class="links">
       {links.map(link => (
         <Link icon={link.icon} href={link.href} class="link" />
@@ -124,18 +122,11 @@ const works: Parameters<typeof Work>[0][] = [
   }
   .top-icon {
     width: 6rem;
-    aspect-ratio: 1;
+    height: auto;
     margin: auto;
     color: var(--top-icon);
     background: var(--top-bg);
     outline: var(--border);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .top-icon-inner {
-    width: 61.8034%;
-    height: auto;
   }
   .links {
     display: flex;
