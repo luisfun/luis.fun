@@ -10,8 +10,11 @@ export type Iconify =
   | "simple-icons:cloudflare"
   | "simple-icons:astro"
   | "simple-icons:svelte"
+  | "simple-icons:daisyui"
   | "simple-icons:tailwindcss"
+  | "simple-icons:chartdotjs"
   | "simple-icons:gatsby"
+  | "simple-icons:dmm"
   | "simple-icons:hono"
   | "simple-icons:tina"
 
