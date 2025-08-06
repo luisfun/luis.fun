@@ -4,14 +4,12 @@ import { Icon } from "astro-icon/components"
 ---
 
 <Layout title="404">
-  <div class="wrap">
-    <a class="icon" href="/">
-      <Icon name="luisfun" />
-    </a>
+  <div class="wrap flex flex-col">
+    <Icon name="luisfun" class="icon-lf icon-rounded" />
     <div class="error">
-      404 error
+      404
     </div>
-    <a href="/">
+    <a class="top-link" href="/">
       Go to Top
     </a>
   </div>
@@ -21,22 +19,12 @@ import { Icon } from "astro-icon/components"
   .wrap {
     margin: 4rem 0;
   }
-  .icon {
-    display: block;
-    color: var(--text-0);
-    width: 6rem;
-    height: 6rem;
-    margin: auto;
-  }
   .error {
-    margin: 1.5rem 0;
-    font-size: 1.75rem;
-    text-align: center;
+    margin: 2rem 0;
+    font-size: 2rem;
+    line-height: 2.5rem;
   }
-  a {
-    display: block;
-    margin: 1.5rem 0;
+  .top-link {
     font-size: 1.25rem;
-    text-align: center;
   }
 </style>
