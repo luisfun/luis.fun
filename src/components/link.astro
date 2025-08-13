@@ -11,6 +11,6 @@ type Props = {
 const { href, icon, ...rest } = Astro.props
 ---
 
-<NewTab {href} aria-label={icon}>
+<NewTab {href} aria-label={icon.split(':')[1]}>
   <Icon name={icon} {...rest} />
 </NewTab>
