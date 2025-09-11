@@ -17,7 +17,7 @@ const { icon, title, site, discord, category, description, stack, github } = Ast
 ---
 
 <div class="work flex flex-col">
-  <NewTab class="head flex flex-col" href={site || discord || github} aria-label="new tab">
+  <NewTab class="head flex flex-col" href={site || discord || github}>
     <img class="icon icon-rounded" src={"/images/"+icon+".webp"} alt={icon} />
     <h2 class="title">{title}</h2>
   </NewTab>
