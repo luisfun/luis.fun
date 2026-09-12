@@ -4,6 +4,7 @@ export type Iconify =
   // https://icon-sets.iconify.design/simple-icons/
   | "simple-icons:github"
   | "simple-icons:npm"
+  | "simple-icons:zenn"
   | "simple-icons:discord"
   | "simple-icons:patreon"
 
