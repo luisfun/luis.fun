@@ -22,9 +22,8 @@ export type Iconify =
 export type WorkIcon =
   | "hono"
   | "paimon"
-  | "paint"
   | "luisfun"
   | "fanzap"
+  | "ticket"
   | "2ch"
   | "mimo"
-  | "workers"
